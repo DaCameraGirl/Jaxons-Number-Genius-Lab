@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Block craft grass cube">
+  <path d="M10 28 48 8l38 20-38 22z" fill="#58f28f" stroke="#075a9e" stroke-width="4"/>
+  <path d="M10 28v42l38 18V50z" fill="#8a5a35" stroke="#075a9e" stroke-width="4"/>
+  <path d="M86 28v42L48 88V50z" fill="#6f4328" stroke="#075a9e" stroke-width="4"/>
+  <path d="M17 31 48 15l31 16-31 16z" fill="#29c76f"/>
+  <rect x="17" y="35" width="10" height="9" fill="#6b3f25"/>
+  <rect x="31" y="48" width="11" height="10" fill="#b37642"/>
+  <rect x="16" y="59" width="13" height="9" fill="#5b351f"/>
+  <rect x="58" y="38" width="11" height="9" fill="#8d5630"/>
+  <rect x="68" y="55" width="12" height="10" fill="#4d2e1d"/>
+  <rect x="53" y="69" width="10" height="8" fill="#9e6337"/>
+</svg>

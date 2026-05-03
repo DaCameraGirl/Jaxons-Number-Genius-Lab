@@ -1,4 +1,4 @@
-const CACHE_NAME = 'jaxons-number-genius-lab-v1';
+const CACHE_NAME = 'jaxons-number-genius-lab-v2';
 const APP_SHELL = [
   './',
   './index.html',
@@ -6,6 +6,7 @@ const APP_SHELL = [
   './js/app.js',
   './manifest.json',
   './assets/number-cube.svg',
+  './assets/grass-block.svg',
 ];
 
 self.addEventListener('install', (event) => {

@@ -7,6 +7,8 @@ This repo is intentionally separate from `Jaxons-Numbers-Games`. It uses the sam
 ## Features
 
 - Big breathing title
+- Strong block-world / Minecraft-inspired visual theme
+- Grass, dirt, stone, and diamond-style voxel blocks
 - Floating, blinking numbers
 - Cursor-follow number sparks
 - Voice toggle with animated voice bars
