@@ -1,6 +1,6 @@
 {
-  "name": "Jaxon's Number Genius Lab",
-  "short_name": "Number Lab",
+  "name": "Jaxon's Number Forge",
+  "short_name": "Number Forge",
   "description": "A blue blocky number arcade with speech, QR access, calculator, and advanced number games.",
   "start_url": "./",
   "scope": "./",

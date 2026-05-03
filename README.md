@@ -1,4 +1,4 @@
-# Jaxon's Number Genius Lab
+# Jaxon's Number Forge
 
 An alternate blue, Minecraft-inspired number arcade for Jaxon.
 

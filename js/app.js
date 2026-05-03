@@ -714,7 +714,7 @@ function init() {
   bindMenu();
   bindKeyboard();
   setupEffects();
-  if (state.voiceOn) setTimeout(() => speak("Welcome to Jaxon's Number Genius Lab. Pick a number challenge.", true), 800);
+  if (state.voiceOn) setTimeout(() => speak("Welcome to Jaxon's Number Forge. Pick a number challenge.", true), 800);
 }
 
 init();

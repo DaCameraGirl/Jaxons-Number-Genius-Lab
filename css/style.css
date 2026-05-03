@@ -3,9 +3,11 @@
   --water: #0ea5ff;
   --deep: #075a9e;
   --navy: #05365f;
-  --gold: #ffd84d;
-  --pink: #ff5bbd;
-  --lime: #58f28f;
+  --hot: #ff174d;
+  --pink: #ff007f;
+  --lime: #00f06d;
+  --violet: #6422ff;
+  --cobalt: #123cff;
   --grass: #29c76f;
   --dirt: #8a5a35;
   --stone: #9aa8b7;
@@ -186,13 +188,13 @@ h1 {
   font-family: "Press Start 2P", monospace;
   font-size: clamp(29px, 7vw, 78px);
   line-height: 1.08;
-  color: var(--gold);
+  color: var(--hot);
   -webkit-text-stroke: 2px var(--deep);
   text-shadow:
-    5px 5px 0 #ffffff,
-    10px 10px 0 rgba(255,91,189,.35),
-    0 0 28px rgba(14,165,255,.92);
-  animation: titleBreath 2.4s ease-in-out infinite, titleColor 6s linear infinite;
+    5px 5px 0 #081b3d,
+    10px 10px 0 rgba(0,240,109,.35),
+    0 0 28px rgba(255,0,127,.95);
+  animation: titleBreath 2.1s ease-in-out infinite, titleColor 3.4s steps(1, end) infinite;
   transform-origin: left center;
 }
 
@@ -577,9 +579,22 @@ button:active {
 }
 
 @keyframes titleColor {
-  0%, 100% { color: var(--gold); }
-  35% { color: #7fd8ff; }
-  70% { color: #ffffff; }
+  0%, 100% {
+    color: var(--hot);
+    text-shadow: 5px 5px 0 #081b3d, 10px 10px 0 rgba(0,240,109,.38), 0 0 34px rgba(255,0,127,.98);
+  }
+  25% {
+    color: var(--lime);
+    text-shadow: 5px 5px 0 #081b3d, 10px 10px 0 rgba(255,0,127,.38), 0 0 34px rgba(0,240,109,.95);
+  }
+  50% {
+    color: var(--cobalt);
+    text-shadow: 5px 5px 0 #081b3d, 10px 10px 0 rgba(255,23,77,.42), 0 0 34px rgba(18,60,255,.95);
+  }
+  75% {
+    color: var(--violet);
+    text-shadow: 5px 5px 0 #081b3d, 10px 10px 0 rgba(0,240,109,.32), 0 0 34px rgba(100,34,255,.95);
+  }
 }
 
 @keyframes voiceBounce {
