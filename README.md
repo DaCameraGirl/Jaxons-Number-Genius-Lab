@@ -14,6 +14,7 @@ This repo is intentionally separate from `Jaxons-Numbers-Games`. It uses the sam
 - Voice toggle with animated voice bars
 - Speech for calculator input, game intros, answers, and feedback
 - QR station for phone or tablet access
+- First load needs internet; game files cache afterward for offline play
 - Calculator Lab
 - Prime Hunter
 - Fibonacci Builder
@@ -22,6 +23,7 @@ This repo is intentionally separate from `Jaxons-Numbers-Games`. It uses the sam
 - Magic Square
 - Factorial Blast
 - Pattern Detective
+- Genius+ difficulty with larger ranges, speed bonuses, and harder logic
 
 ## Live Page
 

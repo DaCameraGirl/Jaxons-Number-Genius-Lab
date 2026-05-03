@@ -207,7 +207,7 @@ h1 {
 
 .status-row {
   display: grid;
-  grid-template-columns: minmax(180px, 240px) minmax(180px, 240px);
+  grid-template-columns: repeat(4, minmax(170px, 240px));
   gap: 14px;
   margin: 24px 0;
 }
@@ -242,6 +242,18 @@ h1 {
   color: var(--pink);
   font-size: 56px;
   line-height: 1;
+}
+
+.mode-card strong {
+  color: var(--deep);
+  font-size: 42px;
+}
+
+.mode-card small {
+  display: block;
+  color: #285f85;
+  font-size: 16px;
+  line-height: 1.15;
 }
 
 .qr-mini img {
@@ -396,11 +408,23 @@ button:active {
 }
 
 .activity-head p,
-.feedback {
+.feedback,
+.challenge-note {
   margin: 8px 0 0;
   color: #285f85;
   font-size: 20px;
   font-weight: 1000;
+}
+
+.challenge-note {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 8px 12px;
+  border: 3px solid var(--deep);
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.28) 25%, transparent 25% 50%, rgba(7,90,158,.1) 50% 75%, transparent 75%) 0 0 / 18px 18px,
+    #fff7c5;
+  box-shadow: 5px 5px 0 rgba(7,90,158,.16);
 }
 
 .calc-display,
