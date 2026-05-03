@@ -1,7 +1,7 @@
 {
   "name": "Jaxon's Number Lab",
   "short_name": "Number Lab",
-  "description": "A blue blocky number arcade with speech, QR access, calculator, and advanced number games.",
+  "description": "A blue blocky number lab with speech, QR access, calculator, algebra, calculus, and advanced number games.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

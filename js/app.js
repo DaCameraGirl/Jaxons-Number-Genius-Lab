@@ -152,6 +152,12 @@ function openSection(id) {
     magicSquare: renderMagicSquare,
     factorialBlast: renderFactorialBlast,
     patternDetective: renderPatternDetective,
+    algebraVault: renderAlgebraVault,
+    systemsLab: renderSystemsLab,
+    functionMachine: renderFunctionMachine,
+    derivativeDash: renderDerivativeDash,
+    tangentSlope: renderTangentSlope,
+    integralBlocks: renderIntegralBlocks,
     qrStation: renderQrStation,
   };
 
@@ -438,6 +444,19 @@ function factorial(number) {
   return number <= 1 ? 1 : number * factorial(number - 1);
 }
 
+function signedNumber(number) {
+  return number >= 0 ? `+ ${number}` : `- ${Math.abs(number)}`;
+}
+
+function signedTerm(coefficient, variable) {
+  const amount = Math.abs(coefficient) === 1 ? variable : `${Math.abs(coefficient)}${variable}`;
+  return coefficient >= 0 ? `+ ${amount}` : `- ${amount}`;
+}
+
+function cleanNumber(number) {
+  return Number.isInteger(number) ? String(number) : String(Number(number.toFixed(2)));
+}
+
 function renderPatternDetective() {
   startRound();
   const type = shuffle(['add', 'multiply', 'square', 'cube', 'triangular', 'alternating', 'multiplyAdd'])[0];
@@ -505,6 +524,146 @@ function renderPatternDetective() {
     <p class="feedback">Find the rule before picking the answer.</p>
   `;
   speak('Pattern Detective. Find the hidden rule and choose what comes next.', true);
+}
+
+function renderAlgebraVault() {
+  startRound();
+  const x = rand(-12, 18);
+  const a = rand(3, 12);
+  const b = rand(-30, 30);
+  const c = a * x + b;
+  const sign = b >= 0 ? '+' : '-';
+  const shownB = Math.abs(b);
+  els.sectionContent.innerHTML = `
+    ${sectionHeader('Algebra Vault', 'Solve the equation and unlock x.')}
+    <p class="challenge-note">Genius+ algebra: isolate x before answering.</p>
+    <div class="result-box"><strong>${a}x ${sign} ${shownB} = ${c}</strong></div>
+    <input id="algebraAnswer" class="answer-input" inputmode="numeric" aria-label="Solve for x" />
+    <button class="mini-action" type="button" data-answer="${x}" data-input="algebraAnswer">Check x</button>
+    <p class="feedback">Undo the constant first, then divide by ${a}.</p>
+  `;
+  $('#algebraAnswer').focus();
+  speak(`Algebra Vault. Solve for x. ${a} x ${sign} ${shownB} equals ${c}.`, true);
+}
+
+function renderSystemsLab() {
+  startRound();
+  const x = rand(-8, 12);
+  const y = rand(-8, 12);
+  const a = rand(2, 6);
+  const b = rand(2, 6);
+  const sum = x + y;
+  const total = a * x + b * y;
+  const answer = `x=${x}, y=${y}`;
+  els.sectionContent.innerHTML = `
+    ${sectionHeader('Systems Lab', 'Solve both variables from two equations.')}
+    <p class="challenge-note">Genius+ algebra: use substitution or elimination.</p>
+    <div class="result-box">
+      <strong>x + y = ${sum}</strong>
+      <strong>${a}x + ${b}y = ${total}</strong>
+    </div>
+    <div class="choice-grid">
+      ${shuffle([
+        answer,
+        `x=${x + 1}, y=${y - 1}`,
+        `x=${y}, y=${x}`,
+        `x=${x - 2}, y=${y + 2}`,
+        `x=${x + 3}, y=${y - 3}`,
+      ]).map((item) => choice(item, item === answer)).join('')}
+    </div>
+    <p class="feedback">Find a pair that satisfies both equations, not just one.</p>
+  `;
+  speak('Systems Lab. Solve both variables from two equations.', true);
+}
+
+function renderFunctionMachine() {
+  startRound();
+  const a = rand(1, 5);
+  const b = rand(-8, 8);
+  const c = rand(-20, 20);
+  const x = rand(-6, 9);
+  const answer = a * x * x + b * x + c;
+  els.sectionContent.innerHTML = `
+    ${sectionHeader('Function Machine', 'Evaluate a quadratic function at the given x value.')}
+    <p class="challenge-note">Genius+ functions: substitute x carefully and use order of operations.</p>
+    <div class="result-box"><strong>f(x) = ${a}x^2 ${signedTerm(b, 'x')} ${signedNumber(c)}</strong><strong>Find f(${x})</strong></div>
+    <div class="choice-grid">
+      ${shuffle([answer, answer + a, answer - b, answer + x, answer - c]).map((number) => choice(number, number === answer)).join('')}
+    </div>
+    <p class="feedback">Square x first, then multiply by ${a}.</p>
+  `;
+  speak(`Function Machine. Find f of ${x}.`, true);
+}
+
+function renderDerivativeDash() {
+  startRound();
+  const a = rand(2, 9);
+  const power = rand(3, 5);
+  const b = rand(2, 12);
+  const correct = `${a * power}x^${power - 1} + ${b}`;
+  const options = [
+    correct,
+    `${a}x^${power - 1} + ${b}`,
+    `${a * (power - 1)}x^${power} + ${b}`,
+    `${a * power}x^${power} + ${b}`,
+    `${a * power}x^${power - 1}`,
+  ];
+  els.sectionContent.innerHTML = `
+    ${sectionHeader('Derivative Dash', 'Choose the derivative using the power rule.')}
+    <p class="challenge-note">Genius+ calculus: derivative of ax^n is a*n*x^(n-1).</p>
+    <div class="result-box"><strong>f(x) = ${a}x^${power} + ${b}x</strong><span>What is f'(x)?</span></div>
+    <div class="choice-grid">
+      ${shuffle(options).map((item) => choice(item, item === correct)).join('')}
+    </div>
+    <p class="feedback">Multiply by the exponent, then drop the exponent by one.</p>
+  `;
+  speak('Derivative Dash. Use the power rule.', true);
+}
+
+function renderTangentSlope() {
+  startRound();
+  const a = rand(1, 6);
+  const b = rand(-10, 10);
+  const c = rand(-12, 12);
+  const x = rand(-5, 7);
+  const answer = 2 * a * x + b;
+  els.sectionContent.innerHTML = `
+    ${sectionHeader('Tangent Slope', 'Find the slope of the tangent line at a point.')}
+    <p class="challenge-note">Genius+ calculus: for ax^2 + bx + c, slope is 2ax + b.</p>
+    <div class="result-box"><strong>y = ${a}x^2 ${signedTerm(b, 'x')} ${signedNumber(c)}</strong><span>Find the slope at x = ${x}</span></div>
+    <div class="choice-grid">
+      ${shuffle([answer, answer + a, answer - b, 2 * a + b, a * x + b]).map((number) => choice(number, number === answer)).join('')}
+    </div>
+    <p class="feedback">Take the derivative first, then plug in x = ${x}.</p>
+  `;
+  speak(`Tangent Slope. Find the slope at x equals ${x}.`, true);
+}
+
+function renderIntegralBlocks() {
+  startRound();
+  const a = rand(1, 6);
+  const b = rand(1, 12);
+  const start = rand(0, 4);
+  const end = start + rand(2, 6);
+  const answer = (a * (end ** 2 - start ** 2)) / 2 + b * (end - start);
+  const displayAnswer = cleanNumber(answer);
+  const options = [
+    displayAnswer,
+    cleanNumber(answer + a),
+    cleanNumber(answer - b),
+    cleanNumber(a * (end - start) + b),
+    cleanNumber((a * end + b) * (end - start)),
+  ];
+  els.sectionContent.innerHTML = `
+    ${sectionHeader('Integral Blocks', 'Find the exact area under a line over an interval.')}
+    <p class="challenge-note">Genius+ calculus: integrate ax + b from x = ${start} to x = ${end}.</p>
+    <div class="result-box"><strong>Area under y = ${a}x + ${b}</strong><span>from x = ${start} to x = ${end}</span></div>
+    <div class="choice-grid">
+      ${shuffle(options).map((item) => choice(item, item === displayAnswer)).join('')}
+    </div>
+    <p class="feedback">Use area = a/2 times (end^2 - start^2), plus b times width.</p>
+  `;
+  speak('Integral Blocks. Find the exact area under the line.', true);
 }
 
 function renderQrStation() {

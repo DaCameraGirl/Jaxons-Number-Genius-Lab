@@ -37,7 +37,7 @@
 
 ## 🎮 WHAT'S INSIDE
 
-> A full number genius arcade — 8 games + a scientific calculator, all wrapped in a glowing Minecraft-blue world built just for Jaxon.
+> A full number genius arcade — 14 games + a scientific calculator, all wrapped in a glowing block-world built just for Jaxon.
 
 | # | 🎮 Game / Feature | 📋 Description |
 |:---:|:---|:---|
@@ -49,6 +49,12 @@
 | 6 | 🔮 **Magic Square** | Fill the 3×3 grid so every row, column and diagonal sums to 15 |
 | 7 | 💥 **Factorial Blast** | Calculate factorials as fast as you can — difficulty scales with score |
 | 8 | 🔍 **Pattern Detective** | Identify arithmetic, geometric, square and Fibonacci-style sequences |
+| 9 | **Algebra Vault** | Solve for x in one-variable equations |
+| 10 | **Systems Lab** | Solve two-variable systems with substitution or elimination |
+| 11 | **Function Machine** | Evaluate quadratic functions at a target x value |
+| 12 | **Derivative Dash** | Match derivatives using the power rule |
+| 13 | **Tangent Slope** | Find tangent-line slopes from quadratic functions |
+| 14 | **Integral Blocks** | Find exact area under a line across an interval |
 | 📱 | **QR Station** | Scan the live QR code to jump straight to the game on any device |
 
 ---
