@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0ea5ff" />
+  <title>Jaxon's Number Genius Lab</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@700;900;1000&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <canvas id="numberCanvas" aria-hidden="true"></canvas>
+  <div id="cursorTrail" aria-hidden="true"></div>
+
+  <button id="voiceIndicator" class="voice-indicator" type="button" aria-pressed="true" title="Toggle voice">
+    <span class="voice-bars" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </span>
+    <span id="voiceLabel">Voice On</span>
+  </button>
+
+  <main id="app" class="app-shell">
+    <section id="mainMenu" class="main-menu">
+      <img class="brand-cube" src="assets/number-cube.svg" alt="" />
+      <div class="title-block">
+        <p class="eyebrow">blue block number arcade</p>
+        <h1>
+          <span>JAXON'S</span>
+          <span>NUMBER GENIUS LAB</span>
+        </h1>
+        <p class="tagline">Prime hunts, Fibonacci puzzles, base conversions, magic squares, factorial blasts, voice, QR access, and numbers flying everywhere.</p>
+      </div>
+
+      <div class="status-row">
+        <div class="score-card">
+          <span>Lab Stars</span>
+          <strong id="stars">0</strong>
+          <button id="resetStars" type="button">Reset Stars</button>
+        </div>
+        <div class="qr-mini">
+          <span>Scan for phone or tablet</span>
+          <img id="qrMini" alt="QR code for Jaxon's Number Genius Lab" />
+        </div>
+      </div>
+
+      <nav class="menu-grid" aria-label="Choose a number activity">
+        <button class="menu-btn" data-section="calculator">Calculator Lab</button>
+        <button class="menu-btn" data-section="primeHunter">Prime Hunter</button>
+        <button class="menu-btn" data-section="fibonacci">Fibonacci Builder</button>
+        <button class="menu-btn" data-section="baseConverter">Base Converter</button>
+        <button class="menu-btn" data-section="multiMaster">Multiplication Master</button>
+        <button class="menu-btn" data-section="magicSquare">Magic Square</button>
+        <button class="menu-btn" data-section="factorialBlast">Factorial Blast</button>
+        <button class="menu-btn" data-section="patternDetective">Pattern Detective</button>
+        <button class="menu-btn wide" data-section="qrStation">QR Scan Station</button>
+      </nav>
+
+      <button id="voiceToggleBtn" class="voice-toggle" type="button">Voice is on - tap to mute</button>
+    </section>
+
+    <section id="sectionView" class="section-view hidden" aria-live="polite">
+      <button id="backBtn" class="back-btn" type="button">Back to Menu</button>
+      <article id="sectionContent" class="activity-card"></article>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "Jaxon's Number Genius Lab",
+  "short_name": "Number Lab",
+  "description": "A blue blocky number arcade with speech, QR access, calculator, and advanced number games.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#bfefff",
+  "theme_color": "#0ea5ff",
+  "icons": [
+    {
+      "src": "assets/number-cube.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
