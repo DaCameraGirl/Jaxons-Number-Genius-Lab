@@ -1,4 +1,4 @@
-const CACHE_NAME = 'jaxons-number-forge-v4';
+const CACHE_NAME = 'jaxons-number-lab-v5';
 const APP_SHELL = [
   './',
   './index.html',

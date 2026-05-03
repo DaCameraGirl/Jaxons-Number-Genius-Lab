@@ -4,21 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0ea5ff" />
-  <title>Jaxon's Number Forge</title>
+  <title>Jaxon's Number Lab</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@700;900;1000&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@700;900;1000&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <canvas id="numberCanvas" aria-hidden="true"></canvas>
   <div id="cursorTrail" aria-hidden="true"></div>
   <div class="block-world" aria-hidden="true">
+    <span class="block-cloud cloud-a"></span>
+    <span class="block-cloud cloud-b"></span>
+    <span class="block-cloud cloud-c"></span>
     <span class="voxel grass-block block-a"></span>
     <span class="voxel diamond-block block-b"></span>
     <span class="voxel dirt-block block-c"></span>
     <span class="voxel stone-block block-d"></span>
+    <span class="voxel ruby-block block-e"></span>
+    <span class="voxel coal-block block-f"></span>
   </div>
 
   <button id="voiceIndicator" class="voice-indicator" type="button" aria-pressed="true" title="Toggle voice">
@@ -32,12 +37,13 @@
     <section id="mainMenu" class="main-menu">
       <img class="brand-cube" src="assets/number-cube.svg" alt="" />
       <div class="title-block">
-        <p class="eyebrow">block-craft math forge</p>
+        <p class="eyebrow">block-craft number lab</p>
         <h1>
           <span>JAXON'S</span>
-          <span>NUMBER FORGE</span>
+          <span>NUMBER LAB</span>
         </h1>
-        <p class="tagline">A bold block-world math forge with prime hunts, Fibonacci puzzles, base conversions, magic squares, factorial blasts, voice, QR access, and numbers flying everywhere.</p>
+        <div class="block-badge">Block Mode: Genius+</div>
+        <p class="tagline">A bold block-world number lab with prime hunts, Fibonacci puzzles, base conversions, magic squares, factorial blasts, voice, QR access, and numbers flying everywhere.</p>
       </div>
 
       <div class="status-row">
@@ -58,7 +64,7 @@
         </div>
         <div class="qr-mini">
           <span>Scan for phone, tablet, or Fire tablet</span>
-          <img id="qrMini" alt="QR code for Jaxon's Number Forge" />
+          <img id="qrMini" alt="QR code for Jaxon's Number Lab" />
         </div>
       </div>
 
@@ -73,6 +79,10 @@
         <button class="menu-btn" data-section="patternDetective">Pattern Detective</button>
         <button class="menu-btn wide" data-section="qrStation">QR Scan Station</button>
       </nav>
+
+      <div class="inventory-bar" aria-hidden="true">
+        <span>7</span><span>13</span><span>π</span><span>64</span><span>101</span><span>√</span><span>2⁸</span><span>!</span><span>#</span>
+      </div>
 
       <button id="voiceToggleBtn" class="voice-toggle" type="button">Voice is on - tap to mute</button>
     </section>
