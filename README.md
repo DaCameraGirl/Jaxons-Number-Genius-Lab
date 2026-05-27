@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧱 JAXON'S NUMBER GENIUS LAB 🧱
+# 🧱 JAXON'S NUMBER GENIUS LAB 🧱 
 
 <br/>
 
