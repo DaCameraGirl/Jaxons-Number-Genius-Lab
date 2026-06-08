@@ -1,29 +1,33 @@
-const CACHE_NAME = 'jaxons-number-lab-v6';
-const APP_SHELL = [
+/* Service worker for offline play. */
+const CACHE = 'pwa-jaxons-number-genius-lab-v1';
+const ASSETS = [
   './',
   './index.html',
-  './css/style.css',
-  './js/app.js',
-  './manifest.json',
-  './assets/number-cube.svg',
-  './assets/grass-block.svg',
+  './manifest.webmanifest',
+  './icons/icon-192.png',
+  './icons/icon-512.png',
+  './icons/icon-512-maskable.png',
+  './icons/apple-touch-icon.png'
 ];
-
-self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)));
-  self.skipWaiting();
+self.addEventListener('install', (e) => {
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()));
 });
-
-self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    caches.keys().then((keys) => Promise.all(
-      keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)),
-    )),
-  );
-  self.clients.claim();
+self.addEventListener('activate', (e) => {
+  e.waitUntil(caches.keys()
+    .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+    .then(() => self.clients.claim()));
 });
-
-self.addEventListener('fetch', (event) => {
-  if (event.request.method !== 'GET') return;
-  event.respondWith(fetch(event.request).catch(() => caches.match(event.request)));
+self.addEventListener('fetch', (e) => {
+  const req = e.request;
+  if (req.method !== 'GET') return;
+  e.respondWith(caches.match(req).then((cached) => {
+    if (cached) return cached;
+    return fetch(req).then((res) => {
+      const url = new URL(req.url);
+      const ok = res.ok && (url.origin === self.location.origin ||
+        url.host.indexOf('gstatic') !== -1 || url.host.indexOf('googleapis') !== -1);
+      if (ok) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(req, copy)); }
+      return res;
+    }).catch(() => caches.match('./index.html'));
+  }));
 });
